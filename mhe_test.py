@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     num_var = s.shape[0]
 
-    T_sim = 4
+    T_sim = 10
     dt = 0.01
     tspan = np.arange(0, T_sim, dt)
 
@@ -25,7 +25,13 @@ if __name__ == '__main__':
     r_CM = np.array([0, 0, 0])
     # r_CM = np.array([-0.005, -0.00014, -0.069])
 
-    u = np.array([0.001, 0.001, -0.001, -0.001])
+
+    # Test for roll
+    u = np.array([0.01, -0.01, -0.01, 0.01])
+    # Test for pitch
+    # u = np.array([0.01, 0.01, -0.01, -0.01])
+    # Test for yaw
+    # u = np.array([0.01, -0.01, 0.01, -0.01])
 
     l = 0.330
     C_T = 1
@@ -63,13 +69,16 @@ if __name__ == '__main__':
                                     1-2*(qy*qy + qz*qz))
 
 
-    plt.subplot(3,1,1)
-    plt.plot(tspan, roll_array)
+    plt.subplot(4,1,1)
+    plt.plot(tspan, s_array[0,:])
 
-    plt.subplot(3,1,2)
-    plt.plot(tspan, pitch_array)
+    plt.subplot(4,1,2)
+    plt.plot(tspan, s_array[1,:])
 
-    plt.subplot(3,1,3)
-    plt.plot(tspan, yaw_array)
+    plt.subplot(4,1,3)
+    plt.plot(tspan, s_array[2,:])
+
+    plt.subplot(4,1,4)
+    plt.plot(tspan, s_array[3,:])
 
     plt.show()
