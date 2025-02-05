@@ -1,6 +1,6 @@
 from acados_template import AcadosModel
 import casadi as cs
-import util4math
+from model import util4math
 
 class MheQuadrotorModel:
     def __init__(self, model_type, l, C_T, C_M):
