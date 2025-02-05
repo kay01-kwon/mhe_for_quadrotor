@@ -108,8 +108,8 @@ class MheQuadrotorModel:
         f_col = self.u[0] + self.u[1] + self.u[2] + self.u[3]
 
         # Moment induced by collective thrust
-        r_cross_f_col = cs.vertcat(ry*f_col,
-                                   -rx*f_col,
+        r_cross_f_col = cs.vertcat(ry*f_col/Jxx,
+                                   -rx*f_col/Jyy,
                                    0)
 
         # inertial effect = w x (J*w)

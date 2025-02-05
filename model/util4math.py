@@ -97,7 +97,7 @@ def thrust2FM(model_type, thrust, arm_length, C_T, C_M):
     else:
         l = arm_length*np.sqrt(2)/2
         m_x = l*( thrust[0] - thrust[1] - thrust[2] + thrust[3])
-        m_y = l*( -(thrust[0] + thrust[1]) + (thrust[2] + thrust[3]))
+        m_y = l*( (thrust[0] + thrust[1]) - (thrust[2] + thrust[3]))
 
     m_z = C_M/C_T*( thrust[0] - thrust[1] + thrust[2] - thrust[3] )
 
